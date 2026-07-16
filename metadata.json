@@ -1,0 +1,6 @@
+{
+  "name": "EchoNet",
+  "description": "An offline mesh communication platform simulation designed for emergency communications during network blackouts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
