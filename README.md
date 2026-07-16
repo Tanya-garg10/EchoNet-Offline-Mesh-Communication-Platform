@@ -1,89 +1,152 @@
-# 🌌 EchoNet: Offline Mesh Communication Platform
+# 🌌 EchoNet – Offline Mesh Communication Platform
 
-EchoNet is a fully functional, production-quality full-stack web application designed for a 48-hour emergency hackathon. It simulates an offline decentralized mesh network in a post-cataclysmic world where global internet, power grids, and cellular backbones have been rendered completely inoperable. 
+EchoNet is a full-stack, offline-first communication platform built for **Build.IT '26 Hackathon**.
 
-With EchoNet, nearby devices establish peer-to-peer radio connections, working as autonomous relays to route encrypted messages, synchronize coordinates, and broadcast emergency alerts without central infrastructure.
+In a world where aliens have disabled the internet, cellular networks, satellites, and conventional communication systems, EchoNet enables secure peer-to-peer communication through a decentralized mesh network. Devices act as relay nodes, allowing messages, emergency alerts, and location updates to travel across the network without relying on centralized infrastructure.
 
----
+# 🚀 Features
 
-## 🚀 Key Features
+### 📡 Mesh Network Communication
 
-### 1. Dynamic BFS Mesh Pathfinder & Relay
-* **Physical Distance Simulation**: Devices have coordinate-based positions on a $1000 \times 600$ grid. Nodes with overlapping circular wireless waves (Euclidean distance $\le 250$ units) establish direct peer links.
-* **Multi-Hop Routing**: If Node A is out of physical range of Node C, EchoNet calculates the shortest path using a **Breadth-First Search (BFS)** algorithm across active online nodes (e.g., `Node_Alpha ➔ Node_Beta ➔ Node_Gamma`).
-* **Visual Relay Animation**: Active message routes animate glowing red data pulses traveling hop-by-hop along vector lines in real-time.
-* **Store-and-Forward (DTN)**: If a destination is offline or disconnected from the mesh segment, messages are automatically queued inside a delay-tolerant pipeline, transmitting once a path re-aligns.
+* Peer-to-peer device connectivity
+* Automatic multi-hop message routing using **Breadth-First Search (BFS)**
+* Store-and-forward messaging for disconnected nodes
+* Live relay path visualization
 
-### 2. End-to-End Cryptography Simulator
-* **AES-GCM-256 Representation**: All messages are signed and encrypted locally at the device level.
-* **Ciphertext View Toggle**: Operators can toggle the terminal between **Decrypted Text** and **Encrypted Ciphertext** (`AES256_GCM::A9F4...`) to view real-time vector transformations of messages floating through the mesh network.
+### 💬 Secure Messaging
 
-### 3. Gemini-Powered AI Dispatcher Node (`@AI_Dispatcher`)
-* **Tactical Neural Responder**: Integrates the server-side `@google/genai` SDK using a lazy initialization pattern.
-* **Situational Awareness**: The AI dispatcher operates on local batteries at coordinates `(500, 500)`. When queried, it assesses current active SOS beacons, online nodes, and recent transceiver messages to offer tactical, context-aware survival strategies and triage manuals.
+* One-to-one messaging
+* Group communication
+* End-to-end encryption simulation (AES-256-GCM)
+* Delivery status and message history
 
-### 4. Interactive Signal Grid Map
-* **Responsive SVG Canvas**: Completely interactive with seamless React state updates.
-* **Dynamic Geolocation**: Drag-and-drop any active node to realign transmission radii, dynamically recalculating the network topology and active shortest-paths in real-time.
+### 🆘 Emergency SOS System
 
-### 5. Critical SOS Distress System
-* **Emergency Broadcast Consoles**: Operators can broadcast a warning or critical distress beacon containing GPS coordinates and triage logs.
-* **Fullscreen Flash Intrusion Alert**: A critical SOS alert triggers an immediate, full-screen red warning override with audio alerts across all active terminals in the mesh.
+* Broadcast emergency alerts across the mesh
+* GPS coordinate sharing
+* High-priority fullscreen emergency notifications
+* Audio alert simulation
 
-### 6. Admin Blackout Control Console
-* **Physical Range Decay**: Operators can slider-decay transceiver ranges from $400\text{m}$ down to $100\text{m}$ to simulate storms, signal barriers, or subterranean blockades.
-* **EMP Solar Flare Wave**: Triggers a simulated space solar disaster that drastically degrades network ranges, severing multi-hop channels.
-* **Forced Killswitches**: Individually disrupt any node's battery supply to simulate device failure or physical capture.
+### 🗺️ Interactive Network Map
 
----
+* Real-time network topology
+* Drag-and-drop device positioning
+* Dynamic signal range visualization
+* Automatic route recalculation
 
-## 🛠️ Technical Architecture & Stack
+### 🤖 AI Emergency Dispatcher
 
-* **Frontend**: React 19, Vite, Tailwind CSS, Lucide Icons, and responsive SVG vectors.
-* **Backend**: Node.js, Express, Socket.io (WebSocket event routing engine), JSON transactional storage database.
-* **AI Core**: `@google/genai` SDK querying `gemini-3.5-flash`.
-* **Security**: JWT Token Authentication, cryptographic hash keyrings.
+Powered by **Google Gemini**.
 
----
+The AI Dispatcher analyzes:
 
-## 🔑 Quick Evaluation Credentials (Pre-Registered)
+* Active network status
+* Online relay nodes
+* Recent communications
+* SOS requests
 
-To evaluate the platform instantly as a hackathon judge, utilize these pre-configured keyrings on the **Unlock Keyring** panel:
+It provides context-aware emergency guidance and coordination recommendations.
 
-1. **Node Alpha (Gateway Base)**: 
-   * **Callsign**: `Node_Alpha`
-   * **Passphrase**: `alpha123`
-2. **Node Beta (Central Relay)**: 
-   * **Callsign**: `Node_Beta`
-   * **Passphrase**: `beta123`
-3. **Node Gamma (Active Beacon)**: 
-   * **Callsign**: `Node_Gamma`
-   * **Passphrase**: `gamma123`
-4. **AI Emergency Coordinator Node**: 
-   * **Callsign**: `AI_Dispatcher`
-   * **Passphrase**: `emergency123`
+### ⚙️ Admin Control Panel
 
----
+* Simulate EMP attacks
+* Adjust wireless transmission ranges
+* Enable/disable network nodes
+* Monitor network health and connectivity
 
-## 💻 Local Installation & Setup
+# 🛠 Tech Stack
 
-1. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
-2. **Set Environment Keys** (Configure in `.env`):
-   ```env
-   GEMINI_API_KEY="your_api_key_here"
-   ```
-3. **Boot Development Mesh**:
-   ```bash
-   npm run dev
-   ```
-4. **Build Production Application**:
-   ```bash
-   npm run build
-   ```
-5. **Start Production Server**:
-   ```bash
-   npm run start
-   ```
+### Frontend
+
+* React 19
+* Vite
+* Tailwind CSS
+* Lucide Icons
+* SVG-based Network Visualization
+
+### Backend
+
+* Node.js
+* Express.js
+* Socket.io
+* JSON Storage
+
+### AI
+
+* Google Gemini API (`@google/genai`)
+
+### Security
+
+* JWT Authentication
+* AES-256-GCM Encryption Simulation
+
+# 🔑 Demo Credentials
+
+| Callsign      | Password     |
+| ------------- | ------------ |
+| Node_Alpha    | alpha123     |
+| Node_Beta     | beta123      |
+| Node_Gamma    | gamma123     |
+| AI_Dispatcher | emergency123 |
+
+# 💻 Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build the project:
+
+```bash
+npm run build
+```
+
+Start the production server:
+
+```bash
+npm run start
+```
+
+# 🎯 Project Highlights
+
+* Offline-first communication platform
+* Decentralized mesh networking
+* BFS-based shortest path routing
+* Interactive network visualization
+* AI-powered emergency coordination
+* Emergency SOS broadcasting
+* Responsive modern interface
+* Scalable architecture for disaster communication
+
+# 🌍 Future Enhancements
+
+* Bluetooth Low Energy (BLE) support
+* Wi-Fi Direct communication
+* LoRa integration
+* Offline maps
+* Voice messaging
+* File sharing
+* Progressive Web App (PWA)
+* Hardware mesh node support
+
+## Made by Tanya Garg with ❤️
